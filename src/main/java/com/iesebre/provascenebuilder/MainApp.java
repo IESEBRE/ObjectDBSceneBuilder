@@ -39,8 +39,6 @@ public class MainApp extends Application {
      */
     public MainApp() throws DAOException {
 
-        //Per solucionar errors de l'ObjectDB en reflection (https://www.objectdb.com/forum/2132)
-        com.objectdb.Enhancer.enhance("com.iesebre.provascenebuilder.persistence.entities.*");
 
         if (realData) {
             //Recuperem les persones de la BD i les carreguem a la llista de persones de l'aplicació

@@ -22,6 +22,12 @@ public class PersonObjectDBImpl implements DAO<Person> {
     private static EntityManagerFactory emf =
             Persistence.createEntityManagerFactory("$objectdb/db/Person.odb");
 
+    public PersonObjectDBImpl() {
+        //Per solucionar errors de l'ObjectDB en reflection (https://www.objectdb.com/forum/2132)
+        com.objectdb.Enhancer.enhance("com.iesebre.provascenebuilder.persistence.entities.*");
+
+    }
+
     @Override
     public Person get(Long id) throws DAOException {
         return null;
