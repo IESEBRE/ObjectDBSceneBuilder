@@ -4,7 +4,9 @@
 
 package com.iesebre.provascenebuilder;
 
+import com.iesebre.provascenebuilder.persistence.exceptions.DAOException;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import com.iesebre.provascenebuilder.model.Person;
@@ -127,9 +129,10 @@ public class PersonOverviewController {
      * Called when the user clicks on the delete button.
      */
     @FXML
-    private void handleDeletePerson() {
+    private void handleDeletePerson() throws DAOException {
         int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
+            mainApp.getDb().remove(personTable.getItems().get(selectedIndex));
             personTable.getItems().remove(selectedIndex);
         } else {
             // Nothing selected.
@@ -146,6 +149,14 @@ public class PersonOverviewController {
             alert.showAndWait();
 
         }
+    }
+
+    /**
+     * Called when the user clicks on the new button.
+     */
+    @FXML
+    private void handleNewPerson() {
+        showEditPerson(null);
     }
 
     /**
@@ -186,5 +197,6 @@ public class PersonOverviewController {
             e.printStackTrace();
         }
     }
+
 
 }

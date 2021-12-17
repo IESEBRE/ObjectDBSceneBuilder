@@ -19,6 +19,8 @@ public interface DAO <T>{
 
     void clear() throws DAOException;
 
+    boolean remove(T object) throws DAOException;
+
     //Tots els mètodes necessaris per interactuar en la BD
 
 }

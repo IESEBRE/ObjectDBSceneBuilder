@@ -155,7 +155,7 @@ public class MainApp extends Application {
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
-            Scene scene = new Scene(rootLayout,600, 400);
+            Scene scene = new Scene(rootLayout,1200, 800);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
@@ -163,5 +163,7 @@ public class MainApp extends Application {
         }
     }
 
-
+    public PersonObjectDBImpl getDb() {
+        return db;
+    }
 }

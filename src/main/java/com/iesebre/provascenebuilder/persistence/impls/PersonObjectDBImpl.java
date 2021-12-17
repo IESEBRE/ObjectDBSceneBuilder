@@ -185,6 +185,30 @@ public class PersonObjectDBImpl implements DAO<Person> {
 
     }
 
+    @Override
+    public boolean remove(Person obj) throws DAOException {
+        //Busquem l'objecte de l'aplicació borrat dins l'arraylist corresponent
+        int trobat = llistaApp.indexOf(obj);
+        //Si l'hem trobat recuperem l'objecte respectiu de la llista de persistència i els borrem els 2
+        if(trobat!=-1) {
+            com.iesebre.provascenebuilder.persistence.entities.Person borrat=llistaPersist.get(trobat);
+            if(em.contains(borrat)){
+                //Borrem l'objecte de la BD
+                em.getTransaction().begin();
+                em.remove(borrat);
+                em.getTransaction().commit();
+
+                //Si ha anat bé el borrem de les llistes
+                llistaPersist.remove(trobat);
+                llistaApp.remove(trobat);
+
+                return true;
+            }
+        }
+        return false;
+
+
+    }
 
 
 }
