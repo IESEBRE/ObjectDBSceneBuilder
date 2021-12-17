@@ -58,7 +58,7 @@ public class MainApp extends Application {
             //Guardo a la BD les persones afegides hardcoded
             personData.stream().forEach(person -> {
                 try {
-                    db.save(person);
+                    db.saveAndCopy(person);
                 } catch (DAOException e) {
                     showDBError();
                 }
@@ -155,7 +155,7 @@ public class MainApp extends Application {
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
-            Scene scene = new Scene(rootLayout);
+            Scene scene = new Scene(rootLayout,600, 400);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
