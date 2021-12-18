@@ -16,11 +16,12 @@ public class DAOException extends Exception{
 
     }
     public DAOException(Integer tipo) {
+        this();
         this.tipo = tipo;
     }
 
     @Override
     public String getMessage() {
-        return super.getMessage();
+        return this.mis.get(tipo);
     }
 }
