@@ -23,8 +23,8 @@ public class MainApp extends Application {
     private AnchorPane personOverviewPane;
     private PersonOverviewController personOverviewController;
 
-    //DAO per persistir la informació
-    private PersonObjectDBImpl db = new PersonObjectDBImpl();
+    //ObjectDB DAO Implementation per persistir la informació
+    private PersonObjectDBImpl db;
 
     //Per usar dades de la BD o hardcoded
     private boolean realData=true;
@@ -37,12 +37,22 @@ public class MainApp extends Application {
     /**
      * Constructor
      */
-    public MainApp() throws DAOException {
+    public MainApp() {
 
-
+        //Intentem instanciar el DAO de persistència en ObjectDB, si no podem tanquem l'aplicació
+        try {
+            db = new PersonObjectDBImpl();
+        } catch (DAOException e) {
+            showDBError(e);
+            System.exit(1);
+        }
         if (realData) {
             //Recuperem les persones de la BD i les carreguem a la llista de persones de l'aplicació
-            personData.addAll(db.getAll());
+            try {
+                personData.addAll(db.getAll());
+            } catch (DAOException e) {
+                showDBError(e);
+            }
         } else {
             // Add some sample data
             personData.add(new Person("Hans", "Muster"));
@@ -60,16 +70,16 @@ public class MainApp extends Application {
                 try {
                     db.saveAndCopy(person);
                 } catch (DAOException e) {
-                    showDBError();
+                    showDBError(e);
                 }
             });
         }
     }
 
-    private void showDBError() {
+    private void showDBError(DAOException e) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("DB problem");
-        alert.setHeaderText("There has been a problem persisting data");
+        alert.setHeaderText(e.getMessage());
         alert.setContentText("Please check your code");
 
         alert.showAndWait();
@@ -120,7 +130,7 @@ public class MainApp extends Application {
                 }
                 this.db.close();
             } catch (DAOException e) {
-                showDBError();
+                showDBError(e);
             }
 
         });
