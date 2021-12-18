@@ -15,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class MainApp extends Application {
 
@@ -38,6 +39,8 @@ public class MainApp extends Application {
      * Constructor
      */
     public MainApp() {
+
+        Locale.setDefault(new Locale("es","ES"));
 
         //Intentem instanciar el DAO de persistència en ObjectDB, si no podem tanquem l'aplicació
         try {
