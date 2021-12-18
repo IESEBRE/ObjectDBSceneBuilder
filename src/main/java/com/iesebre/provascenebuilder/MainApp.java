@@ -39,8 +39,8 @@ public class MainApp extends Application {
      * Constructor
      */
     public MainApp() {
-
-        Locale.setDefault(new Locale("es","ES"));
+        //Poso l'idioma a inglès per no tindre problemes en els decimals
+        Locale.setDefault(new Locale("en","US"));
 
         //Intentem instanciar el DAO de persistència en ObjectDB, si no podem tanquem l'aplicació
         try {

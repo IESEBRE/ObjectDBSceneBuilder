@@ -105,11 +105,12 @@ public class PersonEditDialogController {
             persona.setPostalCode(Integer.valueOf(postalCode.getText().strip()));
             persona.setCity(city.getValue());
 
-            NumberFormat fmt = NumberFormat.getNumberInstance(new Locale("es", "ES"));
-            float d3 = fmt.parse(sou.getText().strip()).floatValue();
-            System.out.printf("d3: %.2f %n", d3);
-
-            persona.setSou(d3);
+//            NumberFormat fmt = NumberFormat.getNumberInstance(new Locale("es", "ES"));
+//            float d3 = fmt.parse(sou.getText().strip()).floatValue();
+//            System.out.printf("d3: %.2f %n", d3);
+//
+//            persona.setSou(d3);
+            persona.setSou(Float.valueOf(sou.getText().strip()));
             persona.setBirthday(DateUtil.parse(birthday.getText().strip()));
 
             // Check whether the date is correct
@@ -126,8 +127,8 @@ public class PersonEditDialogController {
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Incorrect data");
-            alert.setHeaderText("Check postal code");
-            alert.setContentText("Please write a numerical postal code");
+            alert.setHeaderText("Check postal code or salary");
+            alert.setContentText("Please write an integer postal code\nand/or decimal salary with .");
 
             alert.showAndWait();
         } catch (IllegalArgumentException e){
@@ -143,13 +144,6 @@ public class PersonEditDialogController {
             alert.setTitle("General error");
             alert.setHeaderText("DB problem");
             alert.setContentText("Please tell the programmer...");
-
-            alert.showAndWait();
-        } catch (ParseException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Incorrect data");
-            alert.setHeaderText("Check salary");
-            alert.setContentText("Please, remember that decimals are set with , not .");
 
             alert.showAndWait();
         }

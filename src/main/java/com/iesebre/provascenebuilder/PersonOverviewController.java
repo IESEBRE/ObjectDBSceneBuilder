@@ -65,7 +65,7 @@ public class PersonOverviewController {
         // Initialize the person table with the two columns.
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-        //Les columnes no TSring se'ls hi passa un Factory de la següent forma
+        //Les columnes no String se'ls hi passa un Factory de la següent forma
         souColumn.setCellValueFactory(new PropertyValueFactory<>("sou"));
 //        PropertyValueFactory factory = new PropertyValueFactory<>("firstName");
 //        firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
