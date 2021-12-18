@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="600.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iesebre.provascenebuilder.PersonEditDialogController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="600.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iesebre.provascenebuilder.PersonEditDialogController">
    <children>
       <GridPane layoutX="119.0" layoutY="134.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
          <columnConstraints>
@@ -24,6 +24,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label text="First name" />
@@ -31,13 +32,15 @@
             <Label text="Street" GridPane.rowIndex="2" />
             <Label text="City" GridPane.rowIndex="3" />
             <Label text="Postal code" GridPane.rowIndex="4" />
-            <Label text="Birthday" GridPane.rowIndex="5" />
+            <Label text="Salary" GridPane.rowIndex="5" />
+            <Label text="Birthday" GridPane.rowIndex="6" />
             <TextField fx:id="firstName" GridPane.columnIndex="1" />
             <TextField fx:id="lastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="street" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="postalCode" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="birthday" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <ComboBox fx:id="city" prefHeight="24.0" prefWidth="296.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="postalCode" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="sou" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="birthday" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
       <HBox layoutX="363.0" layoutY="347.0" spacing="10.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">

@@ -1,10 +1,6 @@
 package com.iesebre.provascenebuilder.persistence.daos;
 
-
-import com.iesebre.provascenebuilder.model.Person;
 import com.iesebre.provascenebuilder.persistence.exceptions.DAOException;
-import javafx.collections.ObservableList;
-
 import java.util.List;
 
 public interface DAO <T>{

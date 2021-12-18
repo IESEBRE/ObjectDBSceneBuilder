@@ -10,8 +10,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -29,6 +32,8 @@ public class PersonEditDialogController {
     private ComboBox<Person.City> city;
     @FXML
     private TextField birthday;
+    @FXML
+    private TextField sou;
 
     //Dades de la persona a mostrar
     private Person persona;
@@ -72,6 +77,7 @@ public class PersonEditDialogController {
             street.setText(persona.getStreet());
             postalCode.setText(String.valueOf(persona.getPostalCode()));
             city.setValue(persona.getCity());
+            sou.setText(String.format("%.2f",persona.getSou()));
             birthday.setText(DateUtil.format(persona.getBirthday()));
         }else{
             // Add empty person data to the textfields
@@ -80,6 +86,7 @@ public class PersonEditDialogController {
             street.setText("");
             postalCode.setText("");
             city.setValue(Person.City.values()[0]);
+            sou.setText("0,0");
             birthday.setText(DateUtil.format(LocalDate.now()));
 
         }
@@ -97,6 +104,12 @@ public class PersonEditDialogController {
             persona.setStreet(street.getText().strip());
             persona.setPostalCode(Integer.valueOf(postalCode.getText().strip()));
             persona.setCity(city.getValue());
+
+            NumberFormat fmt = NumberFormat.getNumberInstance(new Locale("es", "ES"));
+            float d3 = fmt.parse(sou.getText().strip()).floatValue();
+            System.out.printf("d3: %.2f %n", d3);
+
+            persona.setSou(d3);
             persona.setBirthday(DateUtil.parse(birthday.getText().strip()));
 
             // Check whether the date is correct
@@ -130,6 +143,13 @@ public class PersonEditDialogController {
             alert.setTitle("General error");
             alert.setHeaderText("DB problem");
             alert.setContentText("Please tell the programmer...");
+
+            alert.showAndWait();
+        } catch (ParseException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Incorrect data");
+            alert.setHeaderText("Check salary");
+            alert.setContentText("Please, remember that decimals are set with , not .");
 
             alert.showAndWait();
         }
