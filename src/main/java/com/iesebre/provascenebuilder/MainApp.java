@@ -167,8 +167,11 @@ public class MainApp extends Application {
             loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
-            // Show the scene containing the root layout.
-            Scene scene = new Scene(rootLayout,1200, 800);
+            // Show the scene containing the root layout, adapting the size at screen resolution
+            java.awt.Toolkit screen = java.awt.Toolkit.getDefaultToolkit();
+            Scene scene = new Scene(rootLayout,
+                    screen.getScreenSize().getWidth()*2/3,
+                    screen.getScreenSize().getHeight()*2/3);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

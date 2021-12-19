@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -86,7 +88,7 @@ public class PersonEditDialogController {
             street.setText("");
             postalCode.setText("");
             city.setValue(Person.City.values()[0]);
-            sou.setText("0,0");
+            sou.setText("0.0");
             birthday.setText(DateUtil.format(LocalDate.now()));
 
         }
@@ -105,12 +107,20 @@ public class PersonEditDialogController {
             persona.setPostalCode(Integer.valueOf(postalCode.getText().strip()));
             persona.setCity(city.getValue());
 
+            //Forcem a posar el . com separador de decimals per als números reals
 //            NumberFormat fmt = NumberFormat.getNumberInstance(new Locale("es", "ES"));
+////            NumberFormat fmt = NumberFormat.getNumberInstance();    //no passo Locale ja que per defecte tenim en_US
+//            Number decimal=fmt.parse(sou.getText().strip());
+//            System.out.println(decimal.toString());
 //            float d3 = fmt.parse(sou.getText().strip()).floatValue();
-//            System.out.printf("d3: %.2f %n", d3);
+////            System.out.printf("d3: %.2f %n", d3);
 //
 //            persona.setSou(d3);
-            persona.setSou(Float.valueOf(sou.getText().strip()));
+            try {
+                persona.setSou(Float.valueOf(sou.getText().strip()));
+            }catch(NumberFormatException e) {
+                throw new ParseException(e.getMessage(),e.hashCode());
+            }
             persona.setBirthday(DateUtil.parse(birthday.getText().strip()));
 
             // Check whether the date is correct
@@ -127,8 +137,8 @@ public class PersonEditDialogController {
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Incorrect data");
-            alert.setHeaderText("Check postal code or salary");
-            alert.setContentText("Please write an integer postal code\nand/or decimal salary with .");
+            alert.setHeaderText("Check postal code");
+            alert.setContentText("Please write a correct integer postal code.");
 
             alert.showAndWait();
         } catch (IllegalArgumentException e){
@@ -146,6 +156,13 @@ public class PersonEditDialogController {
             alert.setContentText("Please tell the programmer...");
 
             alert.showAndWait();
+        } catch (ParseException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Incorrect data");
+            alert.setHeaderText("Check salary");
+            alert.setContentText("Please write a correct decimal salary with '.'");
+
+            alert.showAndWait();
         }
 
     }
@@ -161,6 +178,7 @@ public class PersonEditDialogController {
     private void goBackToPersonOverview() {
         mainApp.getRootLayout().setCenter(mainApp.getPersonOverviewPane());
     }
+
 
 
 }

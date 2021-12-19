@@ -6,6 +6,7 @@ module com.iesebre.provascenebuilder {
     requires javax.persistence;
     requires java.sql;
     requires objectdb;
+    requires java.desktop;
 
     opens com.iesebre.provascenebuilder to javafx.fxml;
     exports com.iesebre.provascenebuilder;
