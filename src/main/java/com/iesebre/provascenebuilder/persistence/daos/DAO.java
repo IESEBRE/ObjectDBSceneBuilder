@@ -17,6 +17,10 @@ public interface DAO <T>{
 
     boolean remove(T object) throws DAOException;
 
+    void close() throws DAOException;
+
+    void saveAndCopy(T object)  throws DAOException;
+
     //Tots els mètodes necessaris per interactuar en la BD
 
 }

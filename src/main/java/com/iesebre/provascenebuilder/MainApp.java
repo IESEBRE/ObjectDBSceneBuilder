@@ -1,6 +1,7 @@
 package com.iesebre.provascenebuilder;
 
 import com.iesebre.provascenebuilder.model.Person;
+import com.iesebre.provascenebuilder.persistence.daos.DAO;
 import com.iesebre.provascenebuilder.persistence.exceptions.DAOException;
 import com.iesebre.provascenebuilder.persistence.impls.PersonObjectDBImpl;
 import javafx.application.Application;
@@ -25,7 +26,7 @@ public class MainApp extends Application {
     private PersonOverviewController personOverviewController;
 
     //ObjectDB DAO Implementation per persistir la informació
-    private PersonObjectDBImpl db;
+    private DAO<Person> db;
 
     //Per usar dades de la BD o hardcoded
     private boolean realData=true;
@@ -179,7 +180,7 @@ public class MainApp extends Application {
         }
     }
 
-    public PersonObjectDBImpl getDb() {
+    public DAO<Person> getDb() {
         return db;
     }
 }
