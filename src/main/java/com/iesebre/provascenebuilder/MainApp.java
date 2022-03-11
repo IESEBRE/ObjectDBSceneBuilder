@@ -1,5 +1,6 @@
 package com.iesebre.provascenebuilder;
 
+import com.iesebre.provascenebuilder.controller.PersonOverviewController;
 import com.iesebre.provascenebuilder.model.Person;
 import com.iesebre.provascenebuilder.persistence.daos.DAO;
 import com.iesebre.provascenebuilder.persistence.exceptions.DAOException;
@@ -10,7 +11,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;

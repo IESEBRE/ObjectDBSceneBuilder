@@ -2,8 +2,9 @@
  * Sample Skeleton for 'PersonOverview.fxml' Controller Class
  */
 
-package com.iesebre.provascenebuilder;
+package com.iesebre.provascenebuilder.controller;
 
+import com.iesebre.provascenebuilder.MainApp;
 import com.iesebre.provascenebuilder.controller.PersonEditDialogController;
 import com.iesebre.provascenebuilder.persistence.exceptions.DAOException;
 import javafx.collections.ObservableList;

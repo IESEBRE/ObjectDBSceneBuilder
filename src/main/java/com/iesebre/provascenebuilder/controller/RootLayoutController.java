@@ -2,7 +2,7 @@
  * Sample Skeleton for 'RootLayout.fxml' Controller Class
  */
 
-package com.iesebre.provascenebuilder;
+package com.iesebre.provascenebuilder.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;

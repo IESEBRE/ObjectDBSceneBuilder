@@ -16,4 +16,6 @@ module com.iesebre.provascenebuilder {
     //Per poder posar columnes no String a les TableColumn
     exports com.iesebre.provascenebuilder.model;
     opens com.iesebre.provascenebuilder.model to javafx.fxml;
+    exports com.iesebre.provascenebuilder.controller;
+    opens com.iesebre.provascenebuilder.controller to javafx.fxml;
 }

@@ -1,5 +1,6 @@
-package com.iesebre.provascenebuilder;
+package com.iesebre.provascenebuilder.controller;
 
+import com.iesebre.provascenebuilder.MainApp;
 import com.iesebre.provascenebuilder.model.Person;
 import com.iesebre.provascenebuilder.persistence.exceptions.DAOException;
 import com.iesebre.provascenebuilder.util.DateUtil;
