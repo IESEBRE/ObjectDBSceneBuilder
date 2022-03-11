@@ -4,9 +4,9 @@
 
 package com.iesebre.provascenebuilder;
 
+import com.iesebre.provascenebuilder.controller.PersonEditDialogController;
 import com.iesebre.provascenebuilder.persistence.exceptions.DAOException;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import com.iesebre.provascenebuilder.model.Person;
@@ -102,7 +102,7 @@ public class PersonOverviewController {
      *
      * @param person the person or null
      */
-    void showPersonDetails(Person person) {
+    public void showPersonDetails(Person person) {
         if (person != null) {
             // Fill the labels with info from the person object.
             firstNameLabel.setText(person.getFirstName());

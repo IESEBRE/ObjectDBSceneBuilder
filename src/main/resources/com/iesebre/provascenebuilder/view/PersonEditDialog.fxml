@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="600.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iesebre.provascenebuilder.PersonEditDialogController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="600.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iesebre.provascenebuilder.controller.PersonEditDialogController">
    <children>
       <GridPane layoutX="119.0" layoutY="134.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
          <columnConstraints>

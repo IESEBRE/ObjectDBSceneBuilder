@@ -14,7 +14,7 @@ Coses que he tingut que fer i no surten al tutorial:
 
 Si ens fixem en estos fitxers fxml, si els hem creat en l'IntelliJ (si ho fem en l'Scene Builder no passa), a la primera etiqueta fan referència a una classe que els controla:
 
-	<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iesebre.provascenebuilder.PersonOverviewController">
+	<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iesebre.provascenebuilder.controller.PersonOverviewController">
 	
 Si busquem el controlador dins del projecte veiem que no està creat. Se pot fer des de l'Scene Builder, a l'opció de menú View · Show Sample Controller Skeleton.
 Marquem totes les opcions i llenguatge Java, i apretem el botó Save as..., guardant el fitxer al directori arrel del projecte.  
